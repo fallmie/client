@@ -49,6 +49,9 @@ export default function Tasks() {
 
     useEffect(() => {
         const fetchTasks = async () => {
+            // Log current search params to verify
+            console.log('Current search params:', Object.fromEntries(searchParams));
+            
             const query = searchParams.size ? '?' + searchParams.toString() : '';
             const res = await fetch(`${API_BASE_URL}/tasks/user/${user._id}${query}`, {
                 credentials: 'include',
@@ -59,7 +62,7 @@ export default function Tasks() {
         };
         fetchTasks();
     }, [searchParams]);
-
+    
     if (!tasks) {
         return <TasksSkeleton />; // Вернуть скелетон, если задачи еще не загружены
     }

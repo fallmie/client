@@ -13,7 +13,10 @@ import {
     CardBody,
 } from "@chakra-ui/react";
 import SingleTaskSkeleton from '../_skeletons/SingleTaskSkeleton';
+import { useDisclosure } from '@chakra-ui/react';
 import { BsChevronLeft } from 'react-icons/bs';
+import DeleteConfirmation from '../components/DeleteConfirmation';
+import toast from 'react-hot-toast';
 
 export default function SingleTask() { 
     const { isOpen, onOpen, onClose } = useDisclosure(); 
